@@ -1,7 +1,9 @@
 __author__ = 'Laszewski'
 import _tkinter
 from Tkinter import *
-import MySQLdb
+import MySQLdb  # TO BEDZIE TRZEBA USUNAC
+import mysql.connector
+from mysql.connector import errorcode
 #definicje
 
 root = Tk()
@@ -45,10 +47,28 @@ E4.pack(side = TOP, anchor = W)
 
 root.mainloop()
 
+#################### Dfinicja dla przycisku RUN
+
+def run(self):
+    try:
+        cnx = mysql.connector.connect(user="E1",password="E2",host="E3", database="E4")
+    except mysql.connector.Error as err:
+        if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+            print("Cos poszlo nie tak, sprawdz wprowadzone dane, albo zjedz banana")
+        elif err.errno == errorcode.ER_BAD_DB_ERROR:
+            print("Podana baza nie istnieje")
+        else:
+            print(err)
+    else:
+        cnx.close()
 
 
 
-db = MySQLdb.connect(user = user, password = password, host = host, db = base)
+
+
+
+
+#db = MySQLdb.connect(user = E1, password = E2, host = E3, db = E4)
 
   #  cursor = conn.cursor ()
   #  cursor.execute ("SELECT VERSION()")
