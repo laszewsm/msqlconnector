@@ -14,8 +14,6 @@ root.minsize(600,450)   #rozmiar okna
 root.maxsize(600,450)
 
 
-# Wprowaqdzanie danych
-fields = ("user","password","host","database")
 
 # USER
 
