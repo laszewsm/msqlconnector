@@ -45,11 +45,12 @@ E4 = Entry(root, bd =5)
 E4.pack(side = TOP, anchor = W)
 
 
-root.mainloop()
+
+
 
 #################### Dfinicja dla przycisku RUN
 
-def run(self):
+def run():
     try:
         cnx = mysql.connector.connect(user="E1",password="E2",host="E3", database="E4")
     except mysql.connector.Error as err:
@@ -64,6 +65,12 @@ def run(self):
 
 
 
+##### Przycisk RUN
+
+b = Button(root, text="RUN", command=run)
+b.pack()
+
+root.mainloop()
 
 
 
